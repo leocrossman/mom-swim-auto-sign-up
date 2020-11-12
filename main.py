@@ -4,6 +4,14 @@ import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import json
+
+# get login info
+with open("client_secret.json", "r") as f:
+    login_info = json.load(f)
+email = login_info["email"]
+password = login_info["pass"]
+
 
 url = "https://etrak-ne1.com/etrak/cp?org=98&orgin=https://www.ridgefieldparksandrec.org/"
 
@@ -29,15 +37,3 @@ element.click()
 element = driver.find_element_by_id('menu')
 element = driver.find_element_by_id('signinIcon')
 element.click()
-
-# element = driver.find_element_by_id('signinIcon')
-# element = driver.switch_to.active_element
-# element.click()
-
-# element = driver.switch_to.active_element
-# element = driver.find_element_by_id('')
-
-# element = driver.find_element_by_xpath("//")
-# element = driver.find_element_by_xpath(
-#     "//div[@class='fancybox-overlay fancybox-overlay-fixed']")
-# username = driver.find_element_by_xpath("//form[@id='loginForm']/input[1]")
